@@ -1,42 +1,38 @@
-import * as React from "react"
-import PropTypes from "prop-types"
-import { Link } from "gatsby"
+import React from 'react'
+import { AppBar, Toolbar, Typography, Button, Tabs, Tab, IconButton} from '@material-ui/core'
 
-const Header = ({ siteTitle }) => (
-  <header
-    style={{
-      background: `rebeccapurple`,
-      marginBottom: `1.45rem`,
-    }}
-  >
-    <div
-      style={{
-        margin: `0 auto`,
-        maxWidth: 960,
-        padding: `1.45rem 1.0875rem`,
-      }}
-    >
-      <h1 style={{ margin: 0 }}>
-        <Link
-          to="/"
-          style={{
-            color: `white`,
-            textDecoration: `none`,
-          }}
-        >
-          {siteTitle}
-        </Link>
-      </h1>
-    </div>
-  </header>
-)
 
-Header.propTypes = {
-  siteTitle: PropTypes.string,
-}
+import search from '../../images/search.svg'
+import cart from '../../images/cart.svg'
+import account from '../../images/account.svg'
 
-Header.defaultProps = {
-  siteTitle: ``,
+const Header = () => {
+  return (
+      <AppBar color="transparent" elevation={0}>
+        <Toolbar>
+          <Button>
+            <Typography variant="h1">
+                Codaman
+            </Typography>
+            <Tabs>
+              <Tab label="Hats"/>
+              <Tab label="Shirts"/>
+              <Tab label="Hoodies"/>
+              <Tab label="Contact us"/>
+            </Tabs>
+            <IconButton>
+              <img width="25" src={search} alt="search"/>
+            </IconButton>
+            <IconButton>
+              <img width="25" src={cart} alt="cart"/>
+            </IconButton>
+            <IconButton>
+              <img width="25" src={account} alt="account"/>
+            </IconButton>
+          </Button>
+        </Toolbar>
+      </AppBar>
+  )
 }
 
 export default Header
