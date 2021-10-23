@@ -25,6 +25,14 @@ module.exports = {
       },
     },
     {
+      resolve: 'gatsby-plugin-web-font-loader',
+      options: {
+        google: {
+          families: ['Philosopher:i7:latin, greek', 'Montserrat:n6,n5,n4,n3:latin']
+        }
+      }
+    },
+    {
       resolve: `gatsby-source-strapi`,
       options: {
         apiURL: `http://localhost:1337`,
