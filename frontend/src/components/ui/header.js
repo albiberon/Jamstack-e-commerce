@@ -55,6 +55,31 @@ const Header = ({ categories }) => {
       </List>
     </SwipeableDrawer>
   )
+
+  const actions = [{
+      icon: search,
+      alt:'search',
+      visible: true
+    },
+    {
+      icon: cart,
+      alt: 'cart',
+      visible: true,
+      link: '/cart'
+    },
+    {
+      icon: account,
+      alt: 'account',
+      visible: !matchesMD,
+      link: '/account'
+    },
+    {
+      icon: menu,
+      alt: 'menu',
+      visible: matchesMD,
+      onClick: () => setDrawerOpen(true)
+    }
+  ]
   return (
     <AppBar color="transparent" elevation={0}>
       <Toolbar>
@@ -64,15 +89,15 @@ const Header = ({ categories }) => {
           </Typography>
         </Button>
         {matchesMD ? drawer : tabs}
-        <IconButton>
-          <img className={classes.icon} src={search} alt="search" />
-        </IconButton>
-        <IconButton>
-          <img className={classes.icon} src={cart} alt="cart" />
-        </IconButton>
-          <IconButton onClick={() => matchesMD ? setDrawerOpen(true) : navigate('/account') }>
-            <img className={classes.icon} width="25" src={matchesMD ? menu : account} alt={matchesMD ? 'menu' : 'account'} />
-          </IconButton>
+        {actions.map( action => {
+            if(action.visible) {
+              return ( <IconButton component={Link} to={action.link}>
+                          <img className={classes.icon} src={action.icon} alt={action.alt} onClick={action.onClick}/>
+                        </IconButton>
+                      )
+            }
+          }
+        )}
       </Toolbar>
     </AppBar>
   )
