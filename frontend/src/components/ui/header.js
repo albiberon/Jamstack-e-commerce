@@ -36,7 +36,8 @@ const Header = ({ categories }) => {
   ]
 
   const tabs = (
-    <Tabs value={activeIndex()}
+    <Tabs 
+      value={activeIndex()}
       classes={{ indicator: classes.coloredIndicator, root: classes.tabs }}>
       {
         routes.map(route => (
