@@ -61,7 +61,7 @@ const theme = createTheme({
         },
         body1: {
             fontFamily: "Montserrat",
-            fontSize: "1.5rem",
+            fontSize: "1rem",
             color: grey,
         },
         body2: {
